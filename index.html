@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Amor em Números</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500&display=swap');
+        .fancy-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #D6336C;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+        .message-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #B83280;
+            line-height: 1.6;
+        }
+        .heart {
+            position: fixed;
+            color: rgba(214, 51, 108, 0.8);
+            font-size: 2rem;
+            animation: fall linear infinite;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+    <script>
+        function startCounter() {
+            const start = new Date('2015-09-25');
+            setInterval(() => {
+                const now = new Date();
+                const diff = now - start;
+                const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+                const days = Math.floor((diff / (1000 * 60 * 60 * 24)) % 365.25);
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                const seconds = Math.floor((diff / 1000) % 60);
+                document.getElementById('counter').textContent = 
+                    `${years} anos, ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+            }, 1000);
+        }
+
+        function createHearts() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.textContent = '❤️';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHearts, 300);
+
+        window.onload = startCounter;
+    </script>
+</head>
+<body class="bg-pink-50 flex flex-col items-center p-8">
+    <h1 class="text-4xl font-bold text-pink-600 mb-4">Nosso Amor em Números ❤️</h1>
+    <div id="counter" class="fancy-text mb-8"></div>
+    <div class="grid grid-cols-2 gap-4 mb-8">
+        <img src="https://i.postimg.cc/303CqCmS/1.jpg" alt="Foto 1" class="rounded-lg shadow-md">
+        <img src="https://i.postimg.cc/fkvv9pQ6/2.jpg" alt="Foto 2" class="rounded-lg shadow-md">
+        <img src="https://i.postimg.cc/ykYyXjVW/3.jpg" alt="Foto 3" class="rounded-lg shadow-md">
+        <img src="https://i.postimg.cc/mrK6BxLw/IMG-20250107-WA0024-1.jpg" alt="Foto 4" class="rounded-lg shadow-md">
+    </div>
+    <p class="message-text text-center max-w-xl mb-4">
+        "Meu amor, nesta data gostaria de te parabenizar pelo seu dia, pela mulher incrível que você se tornou.<br>
+        Quero parabenizar pela paciência comigo e com o Gui, pelo apoio em tudo que vou enfrentar, e por sempre estarmos juntos.<br>
+        Que seu dia seja incrível assim como você é pra mim.<br>
+        Te amo meu amor"
+    </p>
+
+    <!-- Mini player SoundCloud -->
+    <div class="mt-4 flex justify-center items-center">
+        <iframe width="50%" height="100" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/268936335&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 5px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/w-sounds-1" title="WSOUNDS| Zé Neto e Cristiano" target="_blank" style="color: #cccccc; text-decoration: none;">WSOUNDS| Zé Neto e Cristiano</a> · <a href="https://soundcloud.com/w-sounds-1/01-junior-cds-kcell-celulares-tuche-fitness" title="Te Amo" target="_blank" style="color: #cccccc; text-decoration: none;">Te Amo</a></div>
+    </div>
+</body>
+</html>
